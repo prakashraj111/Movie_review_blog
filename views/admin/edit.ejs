@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moviesblog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="container-box">
+
+ 
+    <%- include("../navbar/navbar.ejs")  %>
+
+    <div class="row mt-3">
+<div class="col-8 offset-2">
+
+    <h3>Create a New Post</h3>
+    <br><br>
+    <form method="POST" action="/home/<%= post._id %>?_method=PUT" novalidate class="needs-validation">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="post[title]" value="<%= post.title %>"  class="form-control" required>
+            <div class="valid-feedback">Title looks good!</div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="duration" class="form-label">Duration</label>
+                <input  name="post[duration]" value="<%= post.duration %>" class="form-control" required>
+            </div>
+            
+            <div class="mb-3 col-md-8">
+                <label for="releasedDate" class="form-label">Released Date</label>
+                <input type="text" name="post[releasedDate]" value="<%= post.releasedDate %>"  class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="genre" class="form-label">Genre</label>
+                <input  name="post[genre]" value="<%= post.genre %>" class="form-control" required>
+            </div>
+            
+            <div class="mb-3 col-md-8">
+                <label for="language" class="form-label">language</label>
+                <input type="text" name="post[language]" value="<%= post.language %>"  class="form-control" required>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="director" class="form-label">Director</label>
+                <input  name="post[director]" value="<%= post.director %>"  class="form-control" required>
+            </div>
+            
+            <div class="mb-3 col-md-8">
+                <label for="producer" class="form-label">Producer</label>
+                <input type="text" name="post[producer]" value="<%= post.producer %>"  class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="cast" class="form-label">Actor/Actress</label>
+                <input  name="post[cast]" value="<%= post.cast %>"  class="form-control" required>
+            </div>
+            
+            <div class="mb-3 col-md-8">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" name="post[category]" value="<%= post.category %>" class="form-control" required>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="image" class="form-label">Past image ID</label>
+            <input type="text" value="<%= post.image %>" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="image" class="form-label">Enter new post Image ID  from your drive</label>
+            <input type="text" name="post[image]" placeholder="Enter new post image ID" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea  name="post[description]"  cols="30" rows="10" class="form-control" required><%= post.description %></textarea> 
+            <div class="invalid-feedback">please enter about 200-300 words</div>
+        </div>
+           
+        
+        <button class="btn btn-dark add-btn">Edit</button>
+        <br><br>
+    </form>
+</div>
+</div>
+    
+   
+
+
+  <%- include("../footer/footer.ejs")  %>
+
+ 
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html> 
